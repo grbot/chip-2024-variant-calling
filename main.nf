@@ -106,7 +106,6 @@ process CALLVAR {
 
 workflow {
     def fastq = Channel.fromFilePairs(params.fastqs)
-    def output = Channel.fromPath(params.output)
 
     FASTQC(fastq)
     TRIMGALORE(fastq)
