@@ -103,10 +103,9 @@ process CALLVAR {
     """
 }
 
-
 workflow {
     def fastq = Channel.fromFilePairs(params.fastqs)
-
+    
     FASTQC(fastq)
     TRIMGALORE(fastq)
     BWA(TRIMGALORE.out.trimmed_fq)
